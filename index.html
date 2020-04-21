@@ -18,20 +18,20 @@
     
  <script>
 	 
-   var myPhoneJSON;
+   var myJSON;
             $(document).ready(function() {
 		    var SDK=lpTag.agentSDK;
 		    SDK.init();
 
 		    var onSuccess = function(data) {
-			    myPhoneJSON = data;
-          document.getElementById("telefono").innerHTML = "phone --> " + myPhoneJSON[0].phone;
+			    myJSON = data;
+          document.getElementById("customerId").innerHTML = "phone --> " + myJSON[0].customerId;
 		    };
 		    var onError = function(data) {
 			    console.log("Error");
 		    };
 
-		    SDK.get('authenticatedData.personalInfo.contactInfo', onSuccess, onError); //phone number
+		    SDK.get('SDE.customerDetails', onSuccess, onError); //phone number
 	    });
    
    
@@ -46,7 +46,7 @@
 		 </br>
 		<div id="myLabel">Hello there!!</div>
 		</br></br>
-		 <p id="telefono"></p>
+		 <p id="customerId"></p>
 	 </div>
 
 
