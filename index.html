@@ -1,0 +1,56 @@
+<html>
+	
+
+
+	
+
+	
+<style>
+
+</style>
+  
+  
+  <head>
+
+
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+     <script src="https://lpcdn.lpsnmedia.net/webagent/client-SDK.min.js"></script>
+    
+ <script>
+	 
+   var myPhoneJSON;
+            $(document).ready(function() {
+		    var SDK=lpTag.agentSDK;
+		    SDK.init();
+
+		    var onSuccess = function(data) {
+			    myPhoneJSON = data;
+          document.getElementById("telefono").innerHTML = "phone --> " + myPhoneJSON[0].phone;
+		    };
+		    var onError = function(data) {
+			    console.log("Error");
+		    };
+
+		    SDK.get('authenticatedData.personalInfo.contactInfo', onSuccess, onError); //phone number
+	    });
+   
+   
+    </script>
+
+</head>
+  
+  
+  
+<body>
+    <div id="myID">
+		 </br>
+		<div id="myLabel">Hello there!!</div>
+		</br></br>
+		 <p id="telefono"></p>
+	 </div>
+
+
+  
+
+</body>
+</html>
